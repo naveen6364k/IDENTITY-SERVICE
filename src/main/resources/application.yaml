@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: identity-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://34.205.78.175:3306/calmscient
+    username: MySqlUser
+    password: Admin@1234
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  devtools:
+    restart:
+      enabled: true
+server:
+  port: 8083
+  ssl:
+    enabled: false
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env,beans
+
+app:
+  security:
+    enabled: false
+
+resteasy:
+  client:
+    ssl:
+      trust-all: true
+      hostname-verification : false
+
+keycloak:
+  auth-server-url: https://20.197.5.97:8443
+  realm: Calm_Scient
+  resource: Hospital1
+  credentials:
+    secret: eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkMTI4ZTNkNS1mYTU3LTQzODgtOWJhMS0zNWI2ZDgzYzY2OGEifQ.eyJleHAiOjE3NDI1NzQ1NDAsImlhdCI6MTcxMTAzODU0MCwianRpIjoiMTE5Y2IyMDAtZjI3ZC00MTliLTgzMGMtM2M1YzkyMzEyNWNkIiwiaXNzIjoiaHR0cHM6Ly8yMC4xOTcuNS45Nzo4NDQzL3JlYWxtcy9DYWxtX1NjaWVudCIsImF1ZCI6Imh0dHBzOi8vMjAuMTk3LjUuOTc6ODQ0My9yZWFsbXMvQ2FsbV9TY2llbnQiLCJ0eXAiOiJJbml0aWFsQWNjZXNzVG9rZW4ifQ.WX-v7a8ifC0lD7S8tAs_U3_oZgxD1iFyqY5iI2jqbCyVy6Doy3ud4xuwUD0o8dD_ChwzviqDD05EBxCHHNvDTg
